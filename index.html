@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
 
     <!--boxicons link-->
-    <link rel="preconnect" href="https:unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https:unpkg.com/boxicons@latest/css/boxicons.min.css">
     
     <!--googe fonts link-->
     
@@ -252,6 +252,25 @@
 
     <!--custom js file link-->
     <script src="script.js"></script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyNckmTZEgAkNwhuCy4I9YSsdUpEY31HCitUaIxPm6opuYbhtim8051dRK9kF8Bvy4CcA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
     
 </body>
 
