@@ -675,6 +675,12 @@ footer{
         height: auto;
         margin-top: 50px;
     }
+    .home-text h1{
+        font-size: 35px;
+        margin: 10px 0;
+    
+
+    }
 }
 
 
