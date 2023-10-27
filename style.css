@@ -955,7 +955,7 @@ section{
     }
 
     .home .profession-box .profession:nth-child(4) {
-        transform: rotate(100deg) translate(-210px, -335px);
+        transform: rotate(180deg) translate(-210px, -335px);
     }
 
     .contact form .input-box input {
