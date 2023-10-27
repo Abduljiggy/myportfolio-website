@@ -1,55 +1,101 @@
-let menu = document.querySelector('#menu-icon');
+/*>>>>>>>>menu icon navbar<<<<<<<<<<*/
+let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
-menu.onclick = () => {
-    menu.classList.toggle('bx-x');
-    navbar.classList.toggle('open')
+menuIcon.onclick = () => {
+  menuIcon.classList.toggle('bx-x');
+  navbar.classList.toggle('active');
 };
 
-const sr = ScrollReveal({
-    distance: '40px',
-    duration: 2500,
-    reset: true
-
-
-});
-
-sr.reveal('.logo', {delay:200, origin:'left'});
-sr.reveal('.navbar', {delay:400, origin:'top'});
-sr.reveal('.menu-btn', {delay:520, origin:'right'});
-
-sr.reveal('.home-text span', {delay:600, origin:'top'});
-sr.reveal('.home-text h1', {delay:680, origin:'left'});
-sr.reveal('.home-text p', {delay:750, origin:'right'});
-sr.reveal('.main-btn', {delay:860, origin:'left'});
-
-sr.reveal('.share', {delay:950, origin:'bottom'});
-
-sr.reveal('.home-img', {delay:1000, origin:'right'});
 
 
 
-//GET THE BUTTON
-//let mybutton = document.getElementById("gotop");
+/*>>>>>>>>scroll section active link <<<<<<<<<<*/
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('header nav a');
 
-//when user scrolls down 20px from the top document, show the button
-
-//window.onscroll = function()
-//{scrollFunction()};
-
-//function scrollFunction(){
-  //  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    //    mybutton.style.display = "block";
-  //  } else {
-  //      mybutton.style.display = "none";
-  //      }
-
-//}
+window.onscroll = () => {
+  sections.forEach(sec => {
+    let top = window.scrollY;
+    let offset = sec.offsetTop - 150;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute('id');
 
 
-// when the user clicks on the button, scroll to the top of the document
+    if(top >= offset && top < offset + height) {
+      navLinks.forEach(links => {
+        links.classList.remove('active');
+        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+        
+      });
 
-//function topFunction() {
-  //  document.body.scrollTop = o;
-  //  document.documentElement.scrollTop = 0;
-  //  }
+    };
+  })
+
+
+
+
+  /*>>>>>>>>sticky navbar<<<<<<<<<<*/
+let header = document.querySelector('.header');
+
+header.classList.toggle('sticky', window.scrollY > 100);
+
+/*>>>>>>>>remove menu icon when user clicks nav link<<<<<<<<<<*/
+  menuIcon.classList.remove('bx-x');
+  navbar.classList.remove('active');
+
+
+
+
+
+};
+
+
+
+
+/*>>>>>>>>image(testimonial) swiper<<<<<<<<<<*/
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 50,
+    loop: true,
+    grabCursor:true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+
+  /*>>>>>>>>dark light mode<<<<<<<<<<*/
+
+  let darkModeIcon = document.querySelector('#darkMode-icon');
+
+  darkModeIcon.onclick = () => {
+  darkModeIcon.classList.toggle('bx-sun');
+  document.body.classList.toggle('dark-mode');
+  };
+
+  /*--------------------------------*/
+
+
+  /*>>>>>>>>ScrollReveal<<<<<<<<<<*/
+
+
+  ScrollReveal({ 
+    //reset: true,//
+    distance: '80px',
+    duration: 2000,
+    delay: 200
+  });
+
+  ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+  ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form',  { origin: 'bottom' });
+  ScrollReveal().reveal('.home-content h1, .about-img img',  { origin: 'left' });
+  ScrollReveal().reveal('.home-content h3, .home-content p, .about-content',  { origin: 'right' });
+  
+ 
