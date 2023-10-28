@@ -111,37 +111,6 @@
      </section>
 
 
-     <!---SERVICES SECTION--->
-
-    <!--- <section class="services" id="services">
-        <h2 class="heading">My <span>Services</span></h2>
-
-        <div class="services-container">
-            <div class="services-box">
-                <i class='bx bx-code-alt'></i>
-                    <h3>Web Development</h3>-->
-                   <!-- <p>Engage me for your responsive website creation and maintenance</p>-->
-                    
-               <!--  </div>
-                <div class="services-box">
-                    <i class='bx bxs-paint'></i>
-                        <h3>Graphic Design</h3>-->
-                        <!--<p></p>-->
-                        
-                <!--    </div>
-                <div class="services-box">
-                    <i class='bx bx-bar-chart-alt'></i>
-                        <h3>Digital Marketing</h3>-->
-                      <!--  <p></p>-->
-                       
-                  <!--  </div>
-            </div>
-        </div>
-
-     </section> -->
-
-
-
      <!-----PORTFOLIO SECTION---->
 
      <section class="portfolio" id="portfolio">
@@ -175,7 +144,7 @@
                     <h4>Digital Clock</h4>
                     <p>I Built a Responsive Digital Clock </p>
 
-                    <a href="#"><i class='bx bx-link-external'></i></a>
+                    <a href="dgclock.html"><i class='bx bx-link-external'></i></a>
                 </div>
             </div>
             <div class="portfolio-box">
@@ -253,18 +222,19 @@
 
      <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
-        <form action="#">
+        <form onsubmit = "sendEmail(); reset(); return false;">
             <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
-            </div>
-            <div class="input-box">
-                <input type="tel" placeholder="Phone No">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+            
+            
+                <input type="tel" placeholder="Phone No" >
                 <input type="text" placeholder="Email Subject">
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send" class="btn">
+            <textarea id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send</button>
         </form> 
+      
      </section>
 
 
@@ -303,6 +273,28 @@
 
      <!--custom js file link-->
      <script src="script.js"></script>
+
+
     
+     <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script>
+        function sendEmail(){
+            Email.send({
+              secureToken:"402277f9-e82e-4833-a364-394f5cfe3830",
+              
+              To : 'abdulkadirim89@gmail.com',
+              From : document.getElementById("email").value,
+              Subject : "New contact form",
+              Body : "Name: " + document.getElementById("name").value
+              + "<br> Email: " + document.getElementById("email").value
+              + "<br> Phone no: " + document.getElementById("phone").value
+              + "<br> Messagw: " + document.getElementById("message").value
+
+              }).then(
+              message => alert("Message sent successfully")
+              );
+            }
+    </script>
 </body>
 </html>
