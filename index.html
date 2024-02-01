@@ -82,9 +82,7 @@
                    <div class="overlay"></div>
             </div>
 
-                    <div class="home-img">
-                      <img src="img/img-01.png" width=345px>
-                    </div>
+                    
         </div>
      
     </section>
@@ -95,7 +93,7 @@
 
         <div class="about-wrapper">
              <div class="about-img">
-                  <img src="img/img-2.jpeg" width="325px" alt="">
+                  <img src="travel_img/img-2.jpeg" width="325px" alt="">
              </div>
 
               <div class="about-content"> 
@@ -118,17 +116,17 @@
 
         <div class="portfolio-container">
             <div class="portfolio-box">
-                <img src="img/travel.PNG" width="465px" alt="">
+                <img src="travel_img/travel.PNG" width="465px" alt="">
 
                 <div class="portfolio-layer">
                     <h4>Travel web</h4>
                     <p>This web connects you to travel destinations in Nigeria</p>
 
-                    <a href="#"><i class='bx bx-link-external'></i></a>
+                    <a href="travel.html"><i class='bx bx-link-external'></i></a>
                 </div>
             </div>
             <div class="portfolio-box">
-                <img src="img/signin form.PNG" width="465px" alt="">
+                <img src="travel_img/signin form.PNG" width="465px" alt="">
 
                 <div class="portfolio-layer">
                     <h4>Log in Form</h4>
@@ -138,7 +136,7 @@
                 </div>
             </div>
             <div class="portfolio-box">
-                <img src="img/DGclock.PNG" width="465px" alt="">
+                <img src="travel_img/DGclock.PNG" width="465px" alt="">
 
                 <div class="portfolio-layer">
                     <h4>Digital Clock</h4>
@@ -148,7 +146,7 @@
                 </div>
             </div>
             <div class="portfolio-box">
-                <img src="img/port4.png" width="465px" alt="">
+                <img src="travel_img/port4.png" width="465px" alt="">
 
                 <div class="portfolio-layer">
                     <h4>Web Design</h4>
@@ -158,7 +156,7 @@
                 </div>
             </div>
             <div class="portfolio-box">
-                <img src="img/port5.PNG" width="465px" alt="">
+                <img src="travel_img/port5.PNG" width="465px" alt="">
 
                 <div class="portfolio-layer">
                     <h4>Web Design</h4>
@@ -168,7 +166,7 @@
                 </div>
             </div>
             <div class="portfolio-box">
-                <img src="img/port6.PNG" width="465px" alt="">
+                <img src="travel_img/port6.PNG" width="465px" alt="">
 
                 <div class="portfolio-layer">
                     <h4>Web Design</h4>
@@ -192,7 +190,7 @@
             <div class="testimonial-box mySwiper">
                 <div class="testimonial-content swiper-wrapper">
                     <div class="testimonial-slide swiper-slide">
-                        <img src="img/user (1).png" alt="">
+                        <img src="travel_img/user (1).png" alt="">
                         <h3>Llyod Green</h3>
                         <p>"Working with Abdul was an absolute pleasure. Their proficiency in HTML, CSS, and JavaScript is evident in the seamless, responsive designs they deliver. Our website now looks and performs better than ever!"</p>
                     </div>
@@ -226,13 +224,16 @@
             <div class="input-box">
                 <input type="text" placeholder="Full Name" required>
                 <input type="email" placeholder="Email Address" required>
+
+            </div>
             
-            
+            <div class="input-box">
                 <input type="tel" placeholder="Phone No" >
                 <input type="text" placeholder="Email Subject">
             </div>
+           
             <textarea id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn">Send</button>
+            <button onclick="sendEmail();" type="button" class="btn">Send</button>
         </form> 
       
      </section>
@@ -280,6 +281,7 @@
 
     <script>
         function sendEmail(){
+
             Email.send({
               secureToken:"402277f9-e82e-4833-a364-394f5cfe3830",
               
